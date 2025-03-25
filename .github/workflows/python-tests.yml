@@ -38,10 +38,13 @@ jobs:
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
       - name: Test with pytest
         run: |
-          pytest --cov ripser
+          pytest --cov ripser --cov-report=xml
       - name: Upload coverage results
-        run: |
-          bash <(curl -s https://codecov.io/bash)
+        uses: codecov/codecov-action@v5
+        with:
+          name: ripser
+          verbose: true
+          fail_ci_if_error: true
 
   test-conda:
     runs-on: macos-latest
