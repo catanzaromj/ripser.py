@@ -45,6 +45,7 @@ jobs:
           name: ripser
           verbose: true
           fail_ci_if_error: true
+          files: ./coverage.xml
 
   test-conda:
     runs-on: macos-latest
